@@ -68,7 +68,7 @@ function newTeamMember() {
                 additionalMember = new Intern(name, id, email, positionSpecifics);
             }
             team.push(additionalMember);
-            addHtml(additionalMember)
+            addToHtml(additionalMember)
             .then(function() {
                 if (additionalMembers === "yes") {
                     newTeamMember();
@@ -103,4 +103,58 @@ function beginHtml() {
         }
     });
     console.log("begin");
+}
+
+function addToHtml(teamMember) {
+    return new Promise(function(resolve, reject) {
+        const name = teamMember.getName();
+        const role = teamMember.getRole();
+        const id = teamMember.getId();
+        const email = teamMember.getEmail();
+        let data = "";
+        if (role === "Manager") {
+            const officePhone = teamMember.getOfficeNumber();
+            data = `<div class="col-6">
+            <div class="card mx-auto mb-3" style="width: 18rem">
+            <h5 class="card-header">${name}<br /><br />Manager</h5>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">Email Address: ${email}</li>
+                <li class="list-group-item">ID: ${id}</li>
+                <li class="list-group-item">Office Phone: ${officePhone}</li>
+            </ul>
+            </div>
+        </div>`;
+        } else if (role === "Engineer") {
+            const gitHub = teamMember.getGithub();
+            data = `<div class="col-6">
+            <div class="card mx-auto mb-3" style="width: 18rem">
+            <h5 class="card-header">${name}<br /><br />Engineer</h5>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">Email Address: ${email}</li>
+                <li class="list-group-item">ID: ${id}</li>
+                <li class="list-group-item">GitHub: ${gitHub}</li>
+            </ul>
+            </div>
+        </div>`;
+        } else {
+            const school = teamMember.getSchool();
+            data = `<div class="col-6">
+            <div class="card mx-auto mb-3" style="width: 18rem">
+            <h5 class="card-header">${name}<br /><br />Intern</h5>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">Email Address: ${email}</li>
+                <li class="list-group-item">ID: ${id}</li>
+                <li class="list-group-item">School: ${school}</li>
+            </ul>
+            </div>
+        </div>`
+        }
+        console.log("team member added");
+        fs.appendFile("./output/team.html", data, function (err) {
+            if (err) {
+                return reject(err);
+            };
+            return resolve();
+        });
+    });  
 }
