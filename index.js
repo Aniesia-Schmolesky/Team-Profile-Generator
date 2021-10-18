@@ -1,7 +1,6 @@
 const Engineer = require("./lib/Engineer");
 const Intern = require("./lib/Intern");
 const Manager = require("./lib/Manager");
-const generateTeamPage = require('./src/templates')
 
 const inquirer = require("inquirer");
 const fs = require("fs");
@@ -97,7 +96,7 @@ function beginHtml() {
         </nav>
         <div class="container">
             <div class="row">`;
-    fs.writeFile("./output/team.html", html, function(err) {
+    fs.writeFile("./src/index.html", html, function(err) {
         if (err) {
             console.log(err);
         }
@@ -150,7 +149,7 @@ function addToHtml(teamMember) {
         </div>`
         }
         console.log("team member added");
-        fs.appendFile("./output/team.html", data, function (err) {
+        fs.appendFile("./src/index.html", data, function (err) {
             if (err) {
                 return reject(err);
             };
@@ -166,7 +165,7 @@ function completeHtml() {
     </body>
     </html>`;
 
-    fs.appendFile("./output/team.html", html, function (err) {
+    fs.appendFile("./src/index.html", html, function (err) {
         if (err) {
             console.log(err);
         };
