@@ -73,7 +73,7 @@ function newTeamMember() {
                 if (additionalMembers === "yes") {
                     newTeamMember();
                 } else {
-                    finishHtml();
+                    completeHtml();
                 }
             });
             
@@ -158,3 +158,20 @@ function addToHtml(teamMember) {
         });
     });  
 }
+
+function completeHtml() {
+    const html = ` </div>
+    </div>
+    
+    </body>
+    </html>`;
+
+    fs.appendFile("./output/team.html", html, function (err) {
+        if (err) {
+            console.log(err);
+        };
+    });
+    console.log("end");
+}
+
+startFile();
