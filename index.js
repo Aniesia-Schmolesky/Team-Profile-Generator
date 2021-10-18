@@ -91,7 +91,7 @@ function beginHtml() {
         <title>My Team</title>
     </head>
     <body>
-        <nav class="navbar navbar-dark bg-dark mb-5">
+        <nav class="navbar navbar-dark mb-5" style="background-color: #8B0000;">
             <span class="navbar-brand mb-0 h1 w-100 text-center">My Team</span>
         </nav>
         <div class="container">
@@ -114,8 +114,8 @@ function addToHtml(teamMember) {
         if (role === "Manager") {
             const officePhone = teamMember.getOfficeNumber();
             data = `<div class="col-6">
-            <div class="card mx-auto mb-3" style="width: 18rem">
-            <h5 class="card-header">${name}<br /><br />Manager</h5>
+            <div class="card mx-auto card bg-primary mb-3" style="width: 18rem">
+            <h5 class="card-header" class="card text-white">${name}<br /><br />Manager</h5>
             <ul class="list-group list-group-flush">
                 <li class="list-group-item">Email Address: ${email}</li>
                 <li class="list-group-item">ID: ${id}</li>
@@ -126,8 +126,8 @@ function addToHtml(teamMember) {
         } else if (role === "Engineer") {
             const gitHub = teamMember.getGithub();
             data = `<div class="col-6">
-            <div class="card mx-auto mb-3" style="width: 18rem">
-            <h5 class="card-header">${name}<br /><br />Engineer</h5>
+            <div class="card mx-auto card bg-success mb-3" style="width: 18rem">
+            <h5 class="card-header" class="card text-white">${name}<br /><br />Engineer</h5>
             <ul class="list-group list-group-flush">
                 <li class="list-group-item">Email Address: ${email}</li>
                 <li class="list-group-item">ID: ${id}</li>
@@ -138,8 +138,8 @@ function addToHtml(teamMember) {
         } else {
             const school = teamMember.getSchool();
             data = `<div class="col-6">
-            <div class="card mx-auto mb-3" style="width: 18rem">
-            <h5 class="card-header">${name}<br /><br />Intern</h5>
+            <div class="card mx-auto bg-warning mb-3" style="width: 18rem">
+            <h5 class="card-header" class="card text-white">${name}<br /><br />Intern</h5>
             <ul class="list-group list-group-flush">
                 <li class="list-group-item">Email Address: ${email}</li>
                 <li class="list-group-item">ID: ${id}</li>
@@ -148,7 +148,7 @@ function addToHtml(teamMember) {
             </div>
         </div>`
         }
-        console.log("team member added");
+        console.log("team member(s) added");
         fs.appendFile("./src/index.html", data, function (err) {
             if (err) {
                 return reject(err);
