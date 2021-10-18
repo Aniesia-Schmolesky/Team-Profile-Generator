@@ -7,10 +7,15 @@ This application makes it easy to create an html page with all of the employees 
 ## Table of Contents
 
 -Installation
+
 -Usage
+
 -License
+
 -Contributions
+
 -Test
+
 -Questions
 
 ## Installation
