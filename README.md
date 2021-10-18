@@ -4,6 +4,12 @@
 
 This application makes it easy to create an html page with all of the employees information by using the CLI to assemble your team. The positions to choose from are engineer, intern, and manager. The prompted questions change depending on which role you choose.
 
+View Demo Video: https://drive.google.com/file/d/1SK4PaIchG1GxyBaEA1C5kOWEkPzi4tFA/view
+
+https://watch.screencastify.com/v/njr1jQET2oc3xnkecLn7
+
+![image](https://user-images.githubusercontent.com/85134150/137662036-c215bbdc-f2b9-4890-92dd-38eebbdeb842.png)
+
 ## Table of Contents
 
 -Installation
